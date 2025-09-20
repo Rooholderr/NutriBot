@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBot - Asesor de Alimentación Saludable</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🥗 NutriBot</h1>
+            <p>Tu asesor personal de alimentación saludable</p>
+        </header>
+
+        <div id="step1" class="step active">
+            <h2>📋 Información Personal</h2>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="age">Edad:</label>
+                    <input type="number" id="age" name="age" required min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="weight">Peso (kg):</label>
+                    <input type="number" id="weight" name="weight" required min="1" step="0.1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="height">Altura (cm):</label>
+                    <input type="number" id="height" name="height" required min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="activity">Nivel de actividad:</label>
+                    <select id="activity" name="activity" required>
+                        <option value="sedentary">Sedentario (poco o ningún ejercicio)</option>
+                        <option value="light">Ligero (ejercicio 1-3 días/semana)</option>
+                        <option value="moderate">Moderado (ejercicio 3-5 días/semana)</option>
+                        <option value="active">Activo (ejercicio 6-7 días/semana)</option>
+                        <option value="very_active">Muy activo (ejercicio intenso diario)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="goal">Objetivo:</label>
+                    <select id="goal" name="goal" required>
+                        <option value="weight_loss">Bajar de peso</option>
+                        <option value="muscle_gain">Ganar masa muscular</option>
+                        <option value="maintenance">Mantener peso actual</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Calcular Nutrición</button>
+            </form>
+        </div>
+
+        <div id="step2" class="step">
+            <h2>📊 Resultados Nutricionales</h2>
+            <div id="nutritionResults" class="results"></div>
+            <button onclick="showMealPlan()">Ver Plan de Alimentación</button>
+        </div>
+
+        <div id="step3" class="step">
+            <h2>🍽️ Plan de Alimentación</h2>
+            <div id="mealPlan" class="meal-plan"></div>
+            <button onclick="showRecipes()">Ver Recetas Sugeridas</button>
+        </div>
+
+        <div id="step4" class="step">
+            <h2>🍳 Recetas Sugeridas</h2>
+            <div class="ingredient-selector">
+                <h3>Selecciona los ingredientes que tienes:</h3>
+                <div class="ingredients-grid">
+                    <label><input type="checkbox" name="ingredient" value="pollo"> Pollo</label>
+                    <label><input type="checkbox" name="ingredient" value="huevos"> Huevos</label>
+                    <label><input type="checkbox" name="ingredient" value="arroz"> Arroz</label>
+                    <label><input type="checkbox" name="ingredient" value="pasta"> Pasta</label>
+                    <label><input type="checkbox" name="ingredient" value="vegetales"> Vegetales</label>
+                    <label><input type="checkbox" name="ingredient" value="frutas"> Frutas</label>
+                    <label><input type="checkbox" name="ingredient" value="pescado"> Pescado</label>
+                    <label><input type="checkbox" name="ingredient" value="carne"> Carne</label>
+                    <label><input type="checkbox" name="ingredient" value="legumbres"> Legumbres</label>
+                    <label><input type="checkbox" name="ingredient" value="lácteos"> Lácteos</label>
+                    <label><input type="checkbox" name="ingredient" value="frutos secos"> Frutos secos</label>
+                </div>
+                <button onclick="getRecipes()">Buscar Recetas</button>
+            </div>
+            <div id="recipes" class="recipes-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

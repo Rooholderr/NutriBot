@@ -1,0 +1,25 @@
+{
+  "name": "nutribot",
+  "version": "1.0.0",
+  "description": "Asesor de alimentación saludable - CLI tool for nutrition advice",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "cli": "node index.js"
+  },
+  "keywords": ["nutrition", "health", "diet", "meal-plan", "cli"],
+  "author": "NutriBot",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^9.2.16",
+    "chalk": "^5.3.0",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "node-fetch": "^3.3.2"
+  },
+  "bin": {
+    "nutribot": "./index.js"
+  }
+}
